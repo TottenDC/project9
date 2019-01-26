@@ -7,7 +7,10 @@ import {
 import '../css/App.css';
 
 // Components
+import Gallery from './Gallery';
 import Header from './Header';
+import Home from './Home';
+import NotFound from './NotFound';
 
 class App extends Component {
   render() {
@@ -15,6 +18,12 @@ class App extends Component {
       <BrowserRouter>
         <div className="container">
           <Header />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/gallery" component={Gallery} />
+              <Route path="/gallery/:search" />
+              <Route component={NotFound} />
+            </Switch>
         </div>
      </BrowserRouter>
     );
