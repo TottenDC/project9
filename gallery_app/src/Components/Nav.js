@@ -6,14 +6,14 @@ const Nav = ({data, onClick}) => {
     return (
         <nav class="main-nav">
             <ul>
-                <li><NavLink to="/gallery/link1">Link1</NavLink></li>
-                <li><NavLink to="/gallery/link2">Link2</NavLink></li>
-                <li><NavLink to="/gallery/link3">Link3</NavLink></li>
+                <li><NavLink to="/gallery/ocean">Ocean</NavLink></li>
+                <li><NavLink to="/gallery/storm">Storm</NavLink></li>
+                <li><NavLink to="/gallery/moonlight">Moonlight</NavLink></li>
             </ul>
 
-            <Route path="/gallery/link1" render={ () => <Gallery onClick={onClick("sunset")} data={data} /> } />
-            <Route path="/gallery/link2" render={ () => <Gallery /> } />
-            <Route path="/gallery/link3" render={ () => <Gallery /> } />
+            <Route path="/gallery/ocean" render={ () => <Gallery onClick={onClick} data={data} query={"ocean"} /> } />
+            <Route path="/gallery/storm" render={ () => <Gallery onClick={onClick} data={data} query={"storm"} /> } />
+            <Route path="/gallery/moonlight" render={ () => <Gallery onClick={onClick} data={data} query={"moonlight"} /> } />
         </nav>
     );
 };
