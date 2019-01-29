@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Loading from './Loading';
 import NoResults from './NoResults';
 import GalleryItem from './GalleryItem';
 
@@ -9,35 +10,46 @@ class Gallery extends Component {
         }
     }
 
+    componentWillUnmount() {
+        this.props.switchLoading();
+    }
+
     render() {
-        const results = this.props.data;
-        let gallery;
 
-        if (results.length > 0) {
-                gallery = results.map( photo => 
-                    <GalleryItem 
-                        id={photo.id}
-                        secret={photo.secret}
-                        server={photo.server}
-                        farm={photo.farm}
-                        key={photo.id}
-                    />
-                );
-            } else {
-                return (
-                    <NoResults />
-                );
-            }
-
+        if (this.props.loading) {
             return (
-                <div className="photo-container">
-                    <h2>Results</h2>
-                        <ul>
-                            { gallery }
-                        </ul>
-                </div>
-            );
-        };
+                <Loading />
+            )
+        } else {
+            const results = this.props.data;
+            let gallery;
+
+            if (results.length > 0) {
+                    gallery = results.map( photo => 
+                        <GalleryItem 
+                            id={photo.id}
+                            secret={photo.secret}
+                            server={photo.server}
+                            farm={photo.farm}
+                            key={photo.id}
+                        />
+                    );
+                } else {
+                    return (
+                        <NoResults />
+                    );
+                }
+
+                return (
+                    <div className="photo-container">
+                        <h2>Results</h2>
+                            <ul>
+                                { gallery }
+                            </ul>
+                    </div>
+                );
+        }
+    };
 }
     
 

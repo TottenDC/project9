@@ -17,14 +17,16 @@ import NotFound from './NotFound';
 class App extends Component {
 
   state = {
-    photos: []
+    photos: [],
+    loading: true
   };
 
   performSearch = (query) => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then( response => {
         this.setState({ 
-          photos: response.data.photos.photo
+          photos: response.data.photos.photo,
+          loading: false
         })
       })
       .catch(function (error) {
@@ -32,14 +34,25 @@ class App extends Component {
     });
   }
 
+  turnLoadingOn = () => {
+    this.setState({
+      loading: true
+    });
+  }
+
   render() {
     return (
       <BrowserRouter>
         <div className="container">
-          <Header onSearch={this.performSearch} data={this.state.photos} />
+          <Header 
+            onSearch={this.performSearch} 
+            switchLoading={this.turnLoadingOn}
+            data={this.state.photos}
+            loading={this.state.loading}
+          />
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/gallery" render={() => <Gallery data={this.state.photos} />} />
+              <Route exact path="/gallery" render={() => <Gallery data={this.state.photos} switchLoading={this.turnLoadingOn} />} />
               <Route path="/gallery/:search" />
               <Route component={NotFound} />
             </Switch>
