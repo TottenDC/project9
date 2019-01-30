@@ -4,9 +4,18 @@ import NoResults from './NoResults';
 import GalleryItem from './GalleryItem';
 
 class Gallery extends Component {
+
     componentDidMount() {
-        if (this.props.query) {
-            this.props.onClick(this.props.query)
+        let searchQuery = this.props.match.params.search;
+ 
+        if (searchQuery) {
+            this.props.onSearch(searchQuery)
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.match.params.search !== this.props.match.params.search) {
+            this.props.onSearch(nextProps.match.params.search)
         }
     }
 

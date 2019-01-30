@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   BrowserRouter,
   Route,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom';
 import axios from 'axios';
 import '../css/App.css';
@@ -52,8 +53,8 @@ class App extends Component {
           />
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/gallery" render={() => <Gallery data={this.state.photos} switchLoading={this.turnLoadingOn} />} />
-              <Route path="/gallery/:search" />
+              <Route exact path="/gallery" render={() => <Redirect to="/" />} />
+              <Route exact path="/gallery/:search" render={(props) => <Gallery {...props} data={this.state.photos} loading={this.state.loading} onSearch={this.performSearch} switchLoading={this.turnLoadingOn} /> } />
               <Route component={NotFound} />
             </Switch>
         </div>
