@@ -15,6 +15,7 @@ class Gallery extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.match.params.search !== this.props.match.params.search) {
+            this.props.switchLoading();
             this.props.onSearch(nextProps.match.params.search)
         }
     }

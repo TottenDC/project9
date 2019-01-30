@@ -54,7 +54,17 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/gallery" render={() => <Redirect to="/" />} />
-              <Route exact path="/gallery/:search" render={(props) => <Gallery {...props} data={this.state.photos} loading={this.state.loading} onSearch={this.performSearch} switchLoading={this.turnLoadingOn} /> } />
+              <Route exact path="/gallery/:search" 
+                render={(props) => 
+                  <Gallery 
+                    {...props} 
+                    data={this.state.photos}
+                    loading={this.state.loading} 
+                    onSearch={this.performSearch} 
+                    switchLoading={this.turnLoadingOn} 
+                  /> 
+                } 
+              />
               <Route component={NotFound} />
             </Switch>
         </div>
