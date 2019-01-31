@@ -93,6 +93,20 @@ input {
   width: 100%;
 }
 
+.icon {
+  transition: 
+    transform .5s ease-in,
+    filter .5s ease-in;
+}
+
+.icon:hover {
+  transform: rotate(-10deg);
+  filter: invert(.5) sepia(1) saturate(1.6) brightness(85%) contrast(150%) hue-rotate(160deg);
+}
+
+
+/********* Media Queries ********/
+
 @media only screen and (max-width: 767px)  {
   body {
     padding-top: 2em;

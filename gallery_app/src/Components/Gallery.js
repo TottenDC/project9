@@ -52,7 +52,7 @@ class Gallery extends Component {
 
                 return (
                     <div className="photo-container">
-                        <h2>Results</h2>
+                        <h2>{this.props.match.params.search.toUpperCase()}</h2>
                             <ul>
                                 { gallery }
                             </ul>
