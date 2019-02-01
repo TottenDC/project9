@@ -18,6 +18,15 @@ ul {
 a {
   text-decoration: none;
 }
+header {
+  background-color: rgba(67,139,189, .5);
+  border-radius: 4px 4px 0px 0px;
+}
+
+footer {
+  background-color: rgba(67,139,189, .5);
+  border-radius: 0px 0px 4px 4px;
+}
 
 .search-form {
   max-width: 460px;
@@ -89,8 +98,9 @@ input {
   transform: scale(1.65);
 }
 
-.photo-container .not-found {
+.not-found {
   width: 100%;
+  color: #275270;
 }
 
 .icon {
@@ -103,7 +113,6 @@ input {
   transform: rotate(-10deg);
   filter: invert(.5) sepia(1) saturate(1.6) brightness(85%) contrast(150%) hue-rotate(160deg);
 }
-
 
 /********* Media Queries ********/
 

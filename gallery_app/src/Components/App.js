@@ -14,6 +14,7 @@ import Gallery from './Gallery';
 import Header from './Header';
 import Home from './Home';
 import NotFound from './NotFound';
+import Footer from './Footer';
 
 class App extends Component {
 
@@ -67,6 +68,7 @@ class App extends Component {
               />
               <Route component={NotFound} />
             </Switch>
+          <Footer loading={this.state.loading} />
         </div>
      </BrowserRouter>
     );
