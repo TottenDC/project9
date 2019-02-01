@@ -8,7 +8,7 @@
 * Initial CSS and HTML mockups provided by Treehouse.
 * I completely built the React app and updated the CSS to reflect personal style. 
 ## To Use:
-Use `npm install` to download all dependencies.
+Navigate into the `gallery_app` folder and use `npm install` to download all dependencies.
 **Note:** You will need your own config.js with an API key from flickr. See [here](https://www.flickr.com/services/api/).
 
 Once installed, run `npm start` to start a development server.
