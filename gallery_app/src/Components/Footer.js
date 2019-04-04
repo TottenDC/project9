@@ -12,7 +12,7 @@ const Footer = ({loading}) => {
             <ul>
                 <li><Link to="/">Home</Link></li>
                 { topLink }
-                <li><a href="https://github.com/tottendc">DT Design</a></li>
+                <li><a href="https://github.com/tottendc" target="_blank" rel="noopener noreferrer">DT Design</a></li>
             </ul>
         </footer>
     );
