@@ -19,7 +19,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "http://tottendc.github.io/project9",
+  "homepage": "http://tottendc.github.io/project9/gallery_app",
   "browserslist": [
     ">0.2%",
     "not dead",
