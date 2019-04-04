@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import axios from 'axios';
 import '../css/App.css';
-import apiKey from '../config';
+// import apiKey from '../config';
 
 // Components
 import Gallery from './Gallery';
@@ -24,7 +24,7 @@ class App extends Component {
   };
 
   performSearch = (query) => {
-    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.FLICKR_KEY}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then( response => {
         this.setState({ 
           photos: response.data.photos.photo,
