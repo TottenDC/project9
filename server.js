@@ -7,7 +7,7 @@ const express = require('express');
 const app = express();
 
 // Port setup
-app.set('port', process.env.PORT || 30);
+app.set('port', process.env.PORT || 3000);
 
 // Express middleware
 app.use(express.json());
